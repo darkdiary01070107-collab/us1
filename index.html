@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jr & Milena 💖</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #6a11cb, #b721ff); /* Roxo degradê */
+      text-align: center;
+      color: white;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 2rem;
+      font-size: 2.2rem;
+      font-weight: bold;
+      position: relative;
+      z-index: 2;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    .gallery img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .music {
+      margin: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    iframe {
+      border-radius: 15px;
+      margin-top: 1rem;
+    }
+    button {
+      background: #ff4e50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #fc913a;
+    }
+    footer {
+      margin: 2rem;
+      font-size: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Estilo dos corações */
+    .heart {
+      position: fixed;
+      top: -20px;
+      font-size: 24px;
+      animation: fall linear forwards;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+
+  <!-- Links do AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+
+  <header data-aos="fade-down">
+    💕 Momentos de Jr & Milena 💕
+  </header>
+
+  <section class="gallery">
+    <img src="foto1.jpg" alt="Nosso momento 1" data-aos="zoom-in">
+    <img src="foto2.jpg" alt="Nosso momento 2" data-aos="zoom-in" data-aos-delay="100">
+    <img src="foto3.jpg" alt="Nosso momento 3" data-aos="zoom-in" data-aos-delay="200">
+    <img src="foto4.jpg" alt="Nosso momento 4" data-aos="zoom-in" data-aos-delay="300">
+    <img src="foto5.jpg" alt="Nosso momento 5" data-aos="zoom-in" data-aos-delay="400">
+  </section>
+
+  <section class="music" data-aos="fade-up">
+    <h2>🎶 Nossa trilha sonora 🎶</h2>
+    <!-- Player do Spotify com a playlist -->
+    <iframe style="border-radius:12px" 
+      src="https://open.spotify.com/embed/playlist/6RXwEFJPHAnSGzEHcLJRv6?utm_source=generator" 
+      width="90%" height="380" frameBorder="0" allowfullscreen="" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+    <br><br>
+    <button onclick="explosaoDeAmor()">Clique aqui, Milena 💖</button>
+  </section>
+
+  <footer data-aos="fade-up" data-aos-delay="200">
+    Feito com muito amor por Jr 💕
+  </footer>
+
+  <script>
+    // Inicializa as animações do AOS
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    // Função para criar corações caindo
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      
+      // Escolhe cor aleatória (roxos ou pretos)
+      const colors = ["💜", "🖤"];
+      heart.textContent = colors[Math.floor(Math.random() * colors.length)];
+      
+      // Posição horizontal aleatória
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 2) + "s"; // velocidade
+      
+      document.body.appendChild(heart);
+      
+      // Remove o coração depois da animação
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    // Cria corações de leve o tempo todo
+    setInterval(createHeart, 800);
+
+    // Função especial para explosão de corações
+    function explosaoDeAmor() {
+      alert("Milena, você é o melhor capítulo da minha vida 💌");
+      let i = 0;
+      const intervalo = setInterval(() => {
+        createHeart();
+        i++;
+        if (i > 30) clearInterval(intervalo); // solta 30 corações extras
+      }, 100);
+    }
+  </script>
+
+</body>
+</html>
